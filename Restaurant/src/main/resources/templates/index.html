@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>PickleMe</title>
+</head>
+<body>
+	<div align="center">
+		<div>
+			<h1>Pickle Me</h1>
+			<a href="Todays_Special">Todays Special</a>
+		</div>
+
+		<div>&nbsp;</div>
+		
+		<div>
+		<form th:action="@{/}">
+		Filter: <input type="text" name="keyword" th:value="${keyword}" required/>
+		&nbsp;&nbsp;
+		<input type="submit" value="Search"/>
+		&nbsp;
+		<input type="button" value="Clear" onclick="clearFilter()"/>
+		</form>
+		</div>
+
+		<div>&nbsp;</div>
+		<div>
+			<table border="1" cellpadding="10">
+				<thead>
+					<tr>
+						<th>Food Id</th>
+						<th>Food Name</th>
+						<th>Food Price</th>
+						<th>Actions</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="menu : ${listmenu}">
+						<td th:text="${menu.id}">id</td>
+						<td th:text="${menu.name}">name</td>
+						<td th:text="${menu.price}">price</td>
+						<td><a th:href="@{'/edit/' + ${menu.id}}">Edit</a> &nbsp;
+							&nbsp; <a th:href="@{'/delete/' + ${menu.id}}">Delete</a></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+	<script type="text/javascript">
+	function clearFilter(){
+		window.location= '/';
+	}
+	</script>
+</body>
+</html>
