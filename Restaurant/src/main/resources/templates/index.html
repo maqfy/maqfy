@@ -6,24 +6,20 @@
 </head>
 <body>
 	<div align="center">
+
 		<div>
-			<h1>Pickle Me</h1>
-			<a href="Todays_Special">Todays Special</a>
+			<h1 style="color: Green; font-size: 20">Pickle Me</h1>
+
+			<a href="/">Home</a> 
+			&nbsp;&nbsp;
+			 <a href="Todays_Special">Todays Special</a> 
+			 &nbsp;&nbsp; 
+			 <a href="Search">Search</a>
+
 		</div>
 
 		<div>&nbsp;</div>
 		
-		<div>
-		<form th:action="@{/}">
-		Filter: <input type="text" name="keyword" th:value="${keyword}" required/>
-		&nbsp;&nbsp;
-		<input type="submit" value="Search"/>
-		&nbsp;
-		<input type="button" value="Clear" onclick="clearFilter()"/>
-		</form>
-		</div>
-
-		<div>&nbsp;</div>
 		<div>
 			<table border="1" cellpadding="10">
 				<thead>
@@ -39,17 +35,18 @@
 						<td th:text="${menu.id}">id</td>
 						<td th:text="${menu.name}">name</td>
 						<td th:text="${menu.price}">price</td>
-						<td><a th:href="@{'/edit/' + ${menu.id}}">Edit</a> &nbsp;
-							&nbsp; <a th:href="@{'/delete/' + ${menu.id}}">Delete</a></td>
+						<td><a th:href="@{'/edit/' + ${menu.id}}">Edit</a> 
+						&nbsp;		&nbsp; 
+						<a th:href="@{'/delete/' + ${menu.id}}">Delete</a></td>
 					</tr>
 				</tbody>
 			</table>
 		</div>
 	</div>
-	<script type="text/javascript">
+	<!-- <script type="text/javascript">
 	function clearFilter(){
 		window.location= '/';
 	}
-	</script>
+	</script> -->
 </body>
 </html>

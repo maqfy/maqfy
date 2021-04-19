@@ -6,17 +6,16 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class menu {
+public class Menu  {
 
 	
 	private Long id;
 	private String name;
 	private float price;
 	
-	protected menu() {
+	protected Menu() {
 		super();
-		// TODO Auto-generated constructor stub
-	}
+		}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,6 +42,7 @@ public class menu {
 	public void setPrice(float price) {
 		this.price = price;
 	}
+	
 	
 	
 }
